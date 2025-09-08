@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Department - University of Uyo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-hero {
+            background: var(--accent-color);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #e5e7eb;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .welcome-section {
+            background: var(--light-color);
+            padding: 80px 0;
+        }
+
+        .welcome-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .welcome-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .resource-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer h5 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <!-- Added University of Uyo logo to navbar brand -->
+                <img src="assets/images/uniuyo-logo.jpg" alt="University of Uyo Logo" style="height: 40px; width: auto; margin-right: 10px;">
+                <i class="fas fa-shield-alt me-2"></i>
+                UNIUYO Cybersecurity
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <!-- Updated navigation links to point to separate HTML files -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programs.html">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="digital-labs.html">Digital Labs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="updates.html">Updates</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Updated hero content to align with university's vision and mission -->
+                <h1 class="hero-title">Cybersecurity Excellence at University of Uyo</h1>
+                <p class="hero-subtitle">Advancing academic excellence through cutting-edge cybersecurity education, research, and community service - embodying UNIUYO's vision of "Thought & Service"</p>
+                <a href="about.html" class="btn btn-hero btn-lg">Discover Our Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Why Choose UNIUYO Cybersecurity?</h2>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Expert Faculty</h4>
+                        <p>Learn from industry professionals and renowned academics with years of cybersecurity experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Hands-on Labs</h4>
+                        <p>Access state-of-the-art digital labs with cutting-edge cybersecurity tools and simulations.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>Industry Certifications</h4>
+                        <p>Prepare for leading certifications like CISSP, CEH, and CompTIA Security+ with our comprehensive programs.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Industry Partnerships</h4>
+                        <p>Benefit from our strong connections with leading cybersecurity firms and government agencies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Head of Department" class="welcome-avatar">
+                </div>
+                <div class="col-lg-8">
+                    <div class="welcome-card">
+                        <!-- Updated welcome message to reflect university's mission and recent achievements -->
+                        <h2 class="mb-4">Welcome to UNIUYO Cybersecurity Department</h2>
+                        <p class="lead">As part of the University of Uyo's commitment to academic excellence, our Cybersecurity Department embodies the university's vision of utilizing available human and technological resources for teaching, research, community service, and sustainable development.</p>
+                        <p>Following UNIUYO's motto of "Thought & Service," we are dedicated to developing cybersecurity professionals who will serve Nigeria and the global community. Our department contributes to the university's legacy of over 100 inaugural lectures and continuous academic innovation, preparing students to address the evolving challenges of digital security in our interconnected world.</p>
+                        <p><em>"We believe that there is nothing more important than skillful education"</em> - University of Uyo</p>
+                        <a href="about.html" class="btn btn-outline-primary">Learn More About Our Department</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Quick Access</h2>
+            <div class="row g-4">
+                <!-- Updated links to point to separate pages -->
+                <div class="col-md-4">
+                    <a href="programs.html" class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h4>Academic Programs</h4>
+                        <p>B.Sc., M.Sc., and Ph.D. programs in Computer Science with Cybersecurity specialization</p>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="research.html" class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>Research & Innovation</h4>
+                        <p>Cutting-edge research projects and publications in cybersecurity</p>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="training.html" class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>Training & Certifications</h4>
+                        <p>Professional training courses and industry certification programs</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Updates Preview -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <h2 class="section-title mb-0">Latest Updates</h2>
+                </div>
+                <div class="col-auto">
+                    <a href="updates.html" class="btn btn-outline-primary">View All Updates</a>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Updated news items to reflect university context and recent activities -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="text-primary mb-2">
+                            <small><i class="fas fa-calendar-alt me-1"></i>January 15, 2025</small>
+                        </div>
+                        <h5>Contributing to UNIUYO's 102nd Inaugural Lecture</h5>
+                        <p>Our department is proud to support the university's continued tradition of academic excellence with cybersecurity research presentations at upcoming inaugural lectures.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="text-primary mb-2">
+                            <small><i class="fas fa-calendar-alt me-1"></i>January 10, 2025</small>
+                        </div>
+                        <h5>New TETFund Centre of Excellence Partnership</h5>
+                        <p>Aligning with UNIUYO's TETFund initiatives, our department has secured funding for advanced cybersecurity research and training programs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="text-primary mb-2">
+                            <small><i class="fas fa-calendar-alt me-1"></i>December 20, 2024</small>
+                        </div>
+                        <h5>Postgraduate Admissions Open</h5>
+                        <p>Following UNIUYO's 2024/2025 postgraduate admissions, our department is accepting applications for M.Sc. and Ph.D. programs in Cybersecurity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <!-- Updated footer to reflect university branding and motto -->
+                    <h5><i class="fas fa-shield-alt me-2"></i>UNIUYO Cybersecurity</h5>
+                    <p>Part of the University of Uyo's commitment to academic excellence. Building cybersecurity professionals through innovative education, research, and community service - embodying "Thought & Service."</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="updates.html">Updates</a></li>
+                        <!-- Added link to main university website -->
+                        <li><a href="https://uniuyo.edu.ng/" target="_blank">UNIUYO Main Site</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="programs.html">B.Sc. Computer Science</a></li>
+                        <li><a href="programs.html">M.Sc. Cybersecurity</a></li>
+                        <li><a href="programs.html">Ph.D. Programs</a></li>
+                        <li><a href="training.html">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <!-- Updated contact information to be more specific to university location -->
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Cybersecurity Department<br>Faculty of Science, University of Uyo<br>Uyo, Akwa Ibom State, Nigeria</p>
+                    <p><i class="fas fa-phone me-2"></i>+234 (0) 85 200 2345</p>
+                    <p><i class="fas fa-envelope me-2"></i>cybersecurity@uniuyo.edu.ng</p>
+                    <p><i class="fas fa-globe me-2"></i><a href="https://uniuyo.edu.ng/" target="_blank">uniuyo.edu.ng</a></p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <!-- Updated copyright to reflect university branding -->
+                    <p class="mb-0">&copy; 2025 University of Uyo - Cybersecurity Department. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(30, 58, 138, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.feature-card, .resource-item, .welcome-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Mobile menu close on link click
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

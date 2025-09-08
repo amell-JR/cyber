@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Labs - Cybersecurity Department | University of Uyo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .lab-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .lab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .lab-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .equipment-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .equipment-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .virtual-lab-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .virtual-lab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .schedule-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .schedule-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        .schedule-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .status-available {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .status-occupied {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .status-maintenance {
+            color: var(--warning-color);
+            font-weight: 600;
+        }
+
+        .safety-protocol {
+            background: #fef3c7;
+            border: 1px solid var(--warning-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .safety-protocol h6 {
+            color: var(--warning-color);
+            margin-bottom: 1rem;
+        }
+
+        .stats-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer h5 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .booking-form {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 40px;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>
+                UNIUYO Cybersecurity
+            </a>
+            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav-links" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programs.html">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="digital-labs.html">Digital Labs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="updates.html">Updates</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="display-4 fw-bold mb-3">Digital Labs & Facilities</h1>
+                <p class="lead">State-of-the-art cybersecurity laboratories and virtual environments</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Overview -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">World-Class Facilities</h2>
+                    <p class="lead">Our digital labs provide students with hands-on experience using industry-standard tools and technologies. From penetration testing to digital forensics, our facilities support comprehensive cybersecurity education and research.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Physical Labs -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Physical Laboratory Facilities</h2>
+            <div class="row g-4">
+                <!-- Penetration Testing Lab -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="lab-card">
+                        <div class="lab-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h4>Penetration Testing Lab</h4>
+                        <p class="text-muted mb-3">Advanced ethical hacking environment</p>
+                        <p class="mb-4">Equipped with isolated networks and vulnerable systems for hands-on penetration testing training and research.</p>
+                        
+                        <div class="mb-3">
+                            <h6>Key Features:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>30 high-performance workstations</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Isolated network segments</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Vulnerable web applications</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Professional penetration testing tools</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">Available</span>
+                            <small class="text-muted">Capacity: 30 students</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Digital Forensics Lab -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="lab-card">
+                        <div class="lab-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Digital Forensics Lab</h4>
+                        <p class="text-muted mb-3">Crime scene investigation facility</p>
+                        <p class="mb-4">Specialized equipment for digital evidence collection, analysis, and preservation following legal standards.</p>
+                        
+                        <div class="mb-3">
+                            <h6>Key Features:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>Forensic imaging stations</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Mobile device analysis tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Network forensics equipment</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Chain of custody protocols</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-warning">Scheduled</span>
+                            <small class="text-muted">Capacity: 20 students</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Network Security Lab -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="lab-card">
+                        <div class="lab-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4>Network Security Lab</h4>
+                        <p class="text-muted mb-3">Network infrastructure and security</p>
+                        <p class="mb-4">Enterprise-grade networking equipment for studying network protocols, security, and infrastructure management.</p>
+                        
+                        <div class="mb-3">
+                            <h6>Key Features:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>Cisco and Juniper equipment</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Firewall and IDS/IPS systems</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Network monitoring tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i>VLAN and routing configurations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">Available</span>
+                            <small class="text-muted">Capacity: 25 students</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Malware Analysis Lab -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="lab-card">
+                        <div class="lab-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h4>Malware Analysis Lab</h4>
+                        <p class="text-muted mb-3">Secure malware research environment</p>
+                        <p class="mb-4">Isolated sandbox environment for safe malware analysis, reverse engineering, and threat research.</p>
+                        
+                        <div class="mb-3">
+                            <h6>Key Features:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>Air-gapped analysis stations</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Virtual machine environments</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Reverse engineering tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Behavioral analysis systems</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-danger">Restricted Access</span>
+                            <small class="text-muted">Capacity: 15 students</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IoT Security Lab -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="lab-card">
+                        <div class="lab-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h4>IoT Security Lab</h4>
+                        <p class="text-muted mb-3">Internet of Things security research</p>
+                        <p class="mb-4">Collection of IoT devices and embedded systems for security testing and vulnerability research.</p>
+                        
+                        <div class="mb-3">
+                            <h6>Key Features:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>Various IoT devices</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Embedded system debuggers</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Wireless protocol analyzers</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Hardware security modules</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">Available</span>
+                            <small class="text-muted">Capacity: 20 students</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cloud Security Lab -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="lab-card">
+                        <div class="lab-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Cloud Security Lab</h4>
+                        <p class="text-muted mb-3">Cloud infrastructure and security</p>
+                        <p class="mb-4">Hands-on experience with major cloud platforms and security configurations in enterprise environments.</p>
+                        
+                        <div class="mb-3">
+                            <h6>Key Features:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>AWS, Azure, GCP access</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Container security tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Cloud monitoring systems</li>
+                                <li><i class="fas fa-check text-success me-2"></i>DevSecOps pipelines</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">Available</span>
+                            <small class="text-muted">Capacity: 35 students</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Labs -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Virtual Laboratory Environments</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="virtual-lab-card">
+                        <i class="fas fa-desktop fa-3x mb-3"></i>
+                        <h4>CyberRange Platform</h4>
+                        <p class="mb-4">Interactive cybersecurity training scenarios with real-world attack simulations and defense exercises.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-light text-dark me-2">24/7 Access</span>
+                            <span class="badge bg-light text-dark">500+ Scenarios</span>
+                        </div>
+                        <a href="#" class="btn btn-light">Access Platform</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="virtual-lab-card">
+                        <i class="fas fa-globe fa-3x mb-3"></i>
+                        <h4>Virtual Network Lab</h4>
+                        <p class="mb-4">Simulated enterprise networks for practicing network security, configuration, and troubleshooting.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-light text-dark me-2">Remote Access</span>
+                            <span class="badge bg-light text-dark">Multi-Topology</span>
+                        </div>
+                        <a href="#" class="btn btn-light">Launch Lab</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="virtual-lab-card">
+                        <i class="fas fa-code fa-3x mb-3"></i>
+                        <h4>Secure Coding Lab</h4>
+                        <p class="mb-4">Online development environment for learning secure programming practices and vulnerability mitigation.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-light text-dark me-2">Multiple Languages</span>
+                            <span class="badge bg-light text-dark">Auto-Grading</span>
+                        </div>
+                        <a href="#" class="btn btn-light">Start Coding</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment & Resources -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Equipment & Resources</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="equipment-item">
+                        <h5><i class="fas fa-laptop text-primary me-2"></i>Workstations</h5>
+                        <p class="mb-2">High-performance computers with specialized security software and tools.</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="small text-muted">Total Units:</span>
+                            <span class="fw-bold">150</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="equipment-item">
+                        <h5><i class="fas fa-server text-primary me-2"></i>Servers</h5>
+                        <p class="mb-2">Enterprise-grade servers for hosting virtual environments and services.</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="small text-muted">Total Units:</span>
+                            <span class="fw-bold">25</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="equipment-item">
+                        <h5><i class="fas fa-wifi text-primary me-2"></i>Network Devices</h5>
+                        <p class="mb-2">Routers, switches, firewalls, and wireless access points for network labs.</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="small text-muted">Total Units:</span>
+                            <span class="fw-bold">80</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="equipment-item">
+                        <h5><i class="fas fa-mobile-alt text-primary me-2"></i>Mobile Devices</h5>
+                        <p class="mb-2">Smartphones and tablets for mobile security testing and forensics.</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="small text-muted">Total Units:</span>
+                            <span class="fw-bold">40</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Statistics -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="text-center text-white mb-5">Lab Usage Statistics</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <div class="stat-label">Physical Labs</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">150</span>
+                        <div class="stat-label">Workstations</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <div class="stat-label">Virtual Lab Access</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Students Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Schedule -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Lab Schedule & Availability</h2>
+            <div class="schedule-table">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>8:00 - 10:00</strong></td>
+                            <td><span class="status-occupied">Pen Testing Lab</span><br><small>CSC 401</small></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-occupied">Network Security</span><br><small>CSC 501</small></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-occupied">Digital Forensics</span><br><small>CSC 601</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>10:00 - 12:00</strong></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-occupied">IoT Security</span><br><small>CSC 502</small></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-occupied">Malware Analysis</span><br><small>CSC 602</small></td>
+                            <td><span class="status-available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>12:00 - 14:00</strong></td>
+                            <td colspan="5" class="text-center text-muted">Lunch Break</td>
+                        </tr>
+                        <tr>
+                            <td><strong>14:00 - 16:00</strong></td>
+                            <td><span class="status-occupied">Cloud Security</span><br><small>CSC 503</small></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-occupied">Research Project</span><br><small>Graduate</small></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-maintenance">Maintenance</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>16:00 - 18:00</strong></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-occupied">Digital Forensics</span><br><small>CSC 402</small></td>
+                            <td><span class="status-available">Available</span></td>
+                            <td><span class="status-occupied">Pen Testing Lab</span><br><small>CSC 502</small></td>
+                            <td><span class="status-available">Available</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Booking -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">Book a Lab Session</h2>
+                    <div class="booking-form">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="studentId" class="form-label">Student ID</label>
+                                    <input type="text" class="form-control" id="studentId" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="labSelect" class="form-label">Select Lab</label>
+                                    <select class="form-select" id="labSelect" required>
+                                        <option value="">Choose a lab...</option>
+                                        <option value="pentest">Penetration Testing Lab</option>
+                                        <option value="forensics">Digital Forensics Lab</option>
+                                        <option value="network">Network Security Lab</option>
+                                        <option value="malware">Malware Analysis Lab</option>
+                                        <option value="iot">IoT Security Lab</option>
+                                        <option value="cloud">Cloud Security Lab</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="bookingDate" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="bookingDate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="timeSlot" class="form-label">Time Slot</label>
+                                    <select class="form-select" id="timeSlot" required>
+                                        <option value="">Select time...</option>
+                                        <option value="8-10">8:00 - 10:00 AM</option>
+                                        <option value="10-12">10:00 - 12:00 PM</option>
+                                        <option value="14-16">2:00 - 4:00 PM</option>
+                                        <option value="16-18">4:00 - 6:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="purpose" class="form-label">Purpose of Booking</label>
+                                    <textarea class="form-control" id="purpose" rows="3" placeholder="Describe the purpose of your lab session..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100">Submit Booking Request</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Protocols -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Safety Protocols & Guidelines</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="safety-protocol">
+                        <h6><i class="fas fa-exclamation-triangle me-2"></i>General Lab Safety</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="fas fa-check text-success me-2"></i>Always sign in/out when entering/leaving labs</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Report any equipment malfunctions immediately</li>
+                            <li><i class="fas fa-check text-success me-2"></i>No food or drinks allowed in lab areas</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Follow proper shutdown procedures</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="safety-protocol">
+                        <h6><i class="fas fa-shield-alt me-2"></i>Security Protocols</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="fas fa-check text-success me-2"></i>Never attempt real attacks on external systems</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Use only authorized tools and software</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Maintain confidentiality of lab activities</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Report security incidents immediately</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="safety-protocol">
+                        <h6><i class="fas fa-user-lock me-2"></i>Access Control</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="fas fa-check text-success me-2"></i>Valid student ID required for lab access</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Supervised access for restricted labs</li>
+                            <li><i class="fas fa-check text-success me-2"></i>No unauthorized personnel allowed</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Lock workstations when stepping away</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="safety-protocol">
+                        <h6><i class="fas fa-database me-2"></i>Data Protection</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="fas fa-check text-success me-2"></i>No personal data on lab computers</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Use provided storage solutions only</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Clear browser history and cache</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Secure disposal of sensitive materials</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-shield-alt me-2"></i>UNIUYO Cybersecurity</h5>
+                    <p>Building the next generation of cybersecurity experts through innovative education, cutting-edge research, and industry partnerships.</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="updates.html">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Labs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#pentest">Penetration Testing</a></li>
+                        <li><a href="#forensics">Digital Forensics</a></li>
+                        <li><a href="#network">Network Security</a></li>
+                        <li><a href="#malware">Malware Analysis</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>University of Uyo, Akwa Ibom State, Nigeria</p>
+                    <p><i class="fas fa-phone me-2"></i>+234 (0) 85 200 2345</p>
+                    <p><i class="fas fa-envelope me-2"></i>cybersecurity@uniuyo.edu.ng</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 University of Uyo Cybersecurity Department. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(30, 58, 138, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.lab-card, .equipment-item, .virtual-lab-card, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Lab booking form validation
+        const bookingForm = document.querySelector('.booking-form form');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic validation
+                const studentId = document.getElementById('studentId').value;
+                const labSelect = document.getElementById('labSelect').value;
+                const bookingDate = document.getElementById('bookingDate').value;
+                const timeSlot = document.getElementById('timeSlot').value;
+                
+                if (!studentId || !labSelect || !bookingDate || !timeSlot) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Simulate booking submission
+                alert('Booking request submitted successfully! You will receive a confirmation email shortly.');
+                bookingForm.reset();
+            });
+        }
+
+        // Dynamic date restriction (no past dates)
+        const dateInput = document.getElementById('bookingDate');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+    </script>
+</body>
+</html>

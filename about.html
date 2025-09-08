@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cybersecurity Department | University of Uyo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .faculty-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .faculty-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .stats-section {
+            background: var(--light-color);
+            padding: 80px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: #e5e7eb;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer h5 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 40px;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <!-- Added University of Uyo logo to navbar brand -->
+                <img src="assets/images/uniuyo-logo.jpg" alt="University of Uyo Logo" style="height: 40px; width: auto; margin-right: 10px;">
+                <i class="fas fa-shield-alt me-2"></i>
+                UNIUYO Cybersecurity
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programs.html">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="digital-labs.html">Digital Labs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="updates.html">Updates</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="display-4 fw-bold mb-3">About Our Department</h1>
+                <p class="lead">Pioneering cybersecurity education and research in Nigeria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="content-card">
+                        <h2 class="h3 mb-4"><i class="fas fa-bullseye text-primary me-2"></i>Our Mission</h2>
+                        <p class="lead">To provide world-class cybersecurity education, conduct cutting-edge research, and develop skilled professionals who will protect Nigeria's digital infrastructure and contribute to global cybersecurity initiatives.</p>
+                        <p>We are committed to fostering innovation, ethical practices, and excellence in cybersecurity education while building strong partnerships with industry and government agencies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="content-card">
+                        <h2 class="h3 mb-4"><i class="fas fa-eye text-primary me-2"></i>Our Vision</h2>
+                        <p class="lead">To be the leading cybersecurity department in West Africa, recognized globally for excellence in education, research, and innovation in digital security.</p>
+                        <p>We envision a future where our graduates are at the forefront of cybersecurity leadership, protecting critical infrastructure and advancing the field through groundbreaking research and ethical practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Overview -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Department Overview</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="content-card">
+                        <p class="lead">The Cybersecurity Department at the University of Uyo was established in 2018 as part of the Computer Science Faculty, recognizing the critical need for specialized cybersecurity education in Nigeria.</p>
+                        
+                        <p>Our department combines theoretical knowledge with practical application, ensuring our students are well-prepared for the challenges of the modern digital landscape. We offer comprehensive programs from undergraduate to doctoral levels, all designed to meet international standards and industry requirements.</p>
+                        
+                        <p>With state-of-the-art facilities, experienced faculty, and strong industry partnerships, we provide an environment where students can develop the skills, knowledge, and ethical foundation necessary to become leaders in cybersecurity.</p>
+                        
+                        <h4 class="mt-4 mb-3">Core Values</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Excellence:</strong> Striving for the highest standards in education and research</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Integrity:</strong> Maintaining ethical practices in all our activities</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Innovation:</strong> Embracing new technologies and methodologies</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Collaboration:</strong> Building partnerships for mutual growth</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Service:</strong> Contributing to national and global cybersecurity</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Diversity:</strong> Embracing inclusive learning environments</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Students Graduated</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <div class="stat-label">Faculty Members</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label">Research Publications</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <div class="stat-label">Industry Partners</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Meet Our Faculty</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="faculty-card">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Prof. Dr. Adebayo Ogundimu" class="faculty-avatar">
+                        <h4>Prof. Dr. Adebayo Ogundimu</h4>
+                        <p class="text-primary mb-2">Head of Department</p>
+                        <p class="small">Ph.D. in Computer Science, 15+ years in cybersecurity research. Specializes in network security and digital forensics.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline-primary"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="faculty-card">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Dr. Funmi Adeyemi" class="faculty-avatar">
+                        <h4>Dr. Funmi Adeyemi</h4>
+                        <p class="text-primary mb-2">Associate Professor</p>
+                        <p class="small">Ph.D. in Information Security, expert in cryptography and blockchain security. Published 20+ research papers.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline-primary"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="faculty-card">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Dr. Emeka Nwosu" class="faculty-avatar">
+                        <h4>Dr. Emeka Nwosu</h4>
+                        <p class="text-primary mb-2">Senior Lecturer</p>
+                        <p class="small">Ph.D. in Cybersecurity, specializes in ethical hacking and penetration testing. Industry consultant with 10+ years experience.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline-primary"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">View All Faculty</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="content-card">
+                        <div class="timeline-item">
+                            <h5>2018 - Department Establishment</h5>
+                            <p>The Cybersecurity Department was officially established as part of the Computer Science Faculty, with initial enrollment of 50 students.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>2019 - First Research Lab</h5>
+                            <p>Opened our first dedicated cybersecurity research laboratory with state-of-the-art equipment and software tools.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>2020 - Industry Partnerships</h5>
+                            <p>Established partnerships with leading cybersecurity firms and government agencies for internships and research collaboration.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>2021 - First Graduates</h5>
+                            <p>Celebrated our first graduating class of 45 students, with 95% employment rate within 6 months of graduation.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>2022 - International Recognition</h5>
+                            <p>Received accreditation from international cybersecurity bodies and established exchange programs with universities abroad.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>2023 - Research Excellence</h5>
+                            <p>Published groundbreaking research in AI-driven cybersecurity and received national research grants totaling ₦50 million.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>2024 - Expansion</h5>
+                            <p>Expanded facilities with new digital forensics lab and launched postgraduate programs in specialized cybersecurity fields.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="content-card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Contact Information</h4>
+                                <div class="mb-3">
+                                    <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                    <strong>Address:</strong><br>
+                                    Cybersecurity Department<br>
+                                    Faculty of Computer Science<br>
+                                    University of Uyo<br>
+                                    Akwa Ibom State, Nigeria
+                                </div>
+                                <div class="mb-3">
+                                    <i class="fas fa-phone text-primary me-2"></i>
+                                    <strong>Phone:</strong> +234 (0) 85 200 2345
+                                </div>
+                                <div class="mb-3">
+                                    <i class="fas fa-envelope text-primary me-2"></i>
+                                    <strong>Email:</strong> cybersecurity@uniuyo.edu.ng
+                                </div>
+                                <div class="mb-3">
+                                    <i class="fas fa-clock text-primary me-2"></i>
+                                    <strong>Office Hours:</strong><br>
+                                    Monday - Friday: 8:00 AM - 5:00 PM<br>
+                                    Saturday: 9:00 AM - 2:00 PM
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Quick Links</h4>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="programs.html" class="text-decoration-none"><i class="fas fa-graduation-cap text-primary me-2"></i>Academic Programs</a></li>
+                                    <li class="mb-2"><a href="research.html" class="text-decoration-none"><i class="fas fa-flask text-primary me-2"></i>Research Opportunities</a></li>
+                                    <li class="mb-2"><a href="training.html" class="text-decoration-none"><i class="fas fa-certificate text-primary me-2"></i>Training & Certifications</a></li>
+                                    <li class="mb-2"><a href="digital-labs.html" class="text-decoration-none"><i class="fas fa-laptop-code text-primary me-2"></i>Digital Labs</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none"><i class="fas fa-users text-primary me-2"></i>Student Portal</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none"><i class="fas fa-calendar text-primary me-2"></i>Events Calendar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-shield-alt me-2"></i>UNIUYO Cybersecurity</h5>
+                    <p>Building the next generation of cybersecurity experts through innovative education, cutting-edge research, and industry partnerships.</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="updates.html">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="programs.html">B.Sc. Computer Science</a></li>
+                        <li><a href="programs.html">M.Sc. Cybersecurity</a></li>
+                        <li><a href="programs.html">Ph.D. Programs</a></li>
+                        <li><a href="training.html">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>University of Uyo, Akwa Ibom State, Nigeria</p>
+                    <p><i class="fas fa-phone me-2"></i>+234 (0) 85 200 2345</p>
+                    <p><i class="fas fa-envelope me-2"></i>cybersecurity@uniuyo.edu.ng</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 University of Uyo Cybersecurity Department. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(30, 58, 138, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.content-card, .faculty-card, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Mobile menu close on link click
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
