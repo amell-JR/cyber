@@ -409,6 +409,91 @@ p {
 
 .border-gold { border-color: var(--secondary-color) !important; }
 
+/* Additional utility classes for consistency */
+.faculty-avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-color);
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+}
+
+.welcome-avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-color);
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+}
+
+.welcome-section {
+    padding: 5rem 0;
+    background: var(--light-color);
+}
+
+.welcome-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid #e2e8f0;
+    height: 100%;
+}
+
+.resource-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.resource-item:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.resource-item .feature-card {
+    height: 100%;
+}
+
+.resource-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--secondary-color);
+    padding-bottom: 1rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+}
+
+.timeline-item:last-child {
+    border-left: none;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .container {
