@@ -7,241 +7,15 @@
     <link rel="icon" type="image/png" href="assets/images/loginImg.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/cyber-theme.css" rel="stylesheet"> html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Cybersecurity Department</title>
-    <link rel="icon" type="image/png" href="assets/images/loginImg.png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #0a192f;
-            --secondary-color: #00ff41;
-            --accent-color: #00b4d8;
-            --dark-color: #020c1b;
-            --light-color: #ecf8ff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .page-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 120px 0 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .page-header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent-color);
-        }
-
-        .research-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .research-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .publication-item {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-left: 3px solid var(--accent-color);
-        }
-
-        .publication-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
-
-        .stats-section {
-            background: var(--light-color);
-            padding: 80px 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--dark-color);
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        .researcher-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .researcher-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .researcher-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer h5 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .footer a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--secondary-color);
-        }
-
-        .badge-custom {
-            background: var(--accent-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .page-header {
-                padding: 100px 0 40px;
-            }
-            
-            .navbar-nav {
-                text-align: center;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="assets/css/cyber-theme.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="fas fa-shield-alt me-2"></i>
+                <img src="assets/images/loginImg.png" alt="Cybersecurity Department Logo">
                 UNIUYO Cybersecurity
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -276,11 +50,11 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="hero-section">
         <div class="container">
-            <div class="page-header-content">
-                <h1 class="display-4 fw-bold mb-3">Research & Innovation</h1>
-                <p class="lead">Advancing cybersecurity through cutting-edge research and innovation</p>
+            <div class="hero-content">
+                <h1 class="hero-title">Research & Innovation</h1>
+                <p class="hero-subtitle">Advancing cybersecurity through cutting-edge research and innovation</p>
             </div>
         </div>
     </section>
@@ -291,8 +65,8 @@
             <h2 class="section-title">Research Focus Areas</h2>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="research-card">
-                        <div class="research-icon">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-brain"></i>
                         </div>
                         <h4>AI & Machine Learning Security</h4>
@@ -305,8 +79,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="research-card">
-                        <div class="research-icon">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-link"></i>
                         </div>
                         <h4>Blockchain & Cryptocurrency</h4>
@@ -319,8 +93,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="research-card">
-                        <div class="research-icon">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h4>IoT & Mobile Security</h4>
@@ -333,8 +107,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="research-card">
-                        <div class="research-icon">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-search"></i>
                         </div>
                         <h4>Digital Forensics</h4>
@@ -347,8 +121,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="research-card">
-                        <div class="research-icon">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-key"></i>
                         </div>
                         <h4>Cryptography & Privacy</h4>
@@ -361,8 +135,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="research-card">
-                        <div class="research-icon">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-network-wired"></i>
                         </div>
                         <h4>Network Security</h4>
@@ -381,7 +155,7 @@
     <!-- Research Statistics -->
     <section class="stats-section">
         <div class="container">
-            <h2 class="section-title">Research Impact</h2>
+            <h2 class="section-title text-white">Research Impact</h2>
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="stat-item">
@@ -417,10 +191,10 @@
             <h2 class="section-title">Current Research Projects</h2>
             <div class="row g-4">
                 <div class="col-lg-6">
-                    <div class="project-card">
+                    <div class="content-card">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <h4>AI-Powered Threat Intelligence Platform</h4>
-                            <span class="badge-custom">Active</span>
+                            <span class="badge bg-success">Active</span>
                         </div>
                         <p><strong>Principal Investigator:</strong> Prof. Dr. Adebayo Ogundimu</p>
                         <p><strong>Duration:</strong> 2023-2025 | <strong>Funding:</strong> ₦15M</p>
@@ -434,10 +208,10 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="project-card">
+                    <div class="content-card">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <h4>Blockchain-Based Identity Management</h4>
-                            <span class="badge-custom">Active</span>
+                            <span class="badge bg-success">Active</span>
                         </div>
                         <p><strong>Principal Investigator:</strong> Dr. Funmi Adeyemi</p>
                         <p><strong>Duration:</strong> 2024-2026 | <strong>Funding:</strong> ₦12M</p>
@@ -451,10 +225,10 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="project-card">
+                    <div class="content-card">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <h4>IoT Security Framework for Smart Cities</h4>
-                            <span class="badge-custom">Active</span>
+                            <span class="badge bg-success">Active</span>
                         </div>
                         <p><strong>Principal Investigator:</strong> Dr. Emeka Nwosu</p>
                         <p><strong>Duration:</strong> 2023-2025 | <strong>Funding:</strong> ₦10M</p>
@@ -468,10 +242,10 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="project-card">
+                    <div class="content-card">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <h4>Post-Quantum Cryptography Implementation</h4>
-                            <span class="badge-custom">Planning</span>
+                            <span class="badge bg-warning">Planning</span>
                         </div>
                         <p><strong>Principal Investigator:</strong> Dr. Funmi Adeyemi</p>
                         <p><strong>Duration:</strong> 2025-2027 | <strong>Funding:</strong> ₦8M</p>
@@ -494,7 +268,7 @@
             <h2 class="section-title">Recent Publications</h2>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <div class="publication-item">
+                    <div class="content-card mb-4">
                         <h5>"Machine Learning Approaches for Advanced Persistent Threat Detection"</h5>
                         <p class="mb-2"><strong>Authors:</strong> Ogundimu, A., Adeyemi, F., Nwosu, E.</p>
                         <p class="mb-2"><strong>Journal:</strong> International Journal of Cybersecurity Research, 2024</p>
@@ -505,7 +279,7 @@
                         </div>
                     </div>
                     
-                    <div class="publication-item">
+                    <div class="content-card mb-4">
                         <h5>"Blockchain-Based Secure Voting System: Design and Implementation"</h5>
                         <p class="mb-2"><strong>Authors:</strong> Adeyemi, F., Ogundimu, A.</p>
                         <p class="mb-2"><strong>Conference:</strong> African Conference on Cybersecurity, 2024</p>
@@ -516,7 +290,7 @@
                         </div>
                     </div>
                     
-                    <div class="publication-item">
+                    <div class="content-card mb-4">
                         <h5>"IoT Device Security: Challenges and Solutions for Smart Infrastructure"</h5>
                         <p class="mb-2"><strong>Authors:</strong> Nwosu, E., Ogundimu, A.</p>
                         <p class="mb-2"><strong>Journal:</strong> IEEE Security & Privacy, 2023</p>
@@ -541,10 +315,12 @@
             <h2 class="section-title">Research Team</h2>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
-                    <div class="researcher-card">
-                        <img src="/placeholder.svg?height=100&width=100" alt="Prof. Dr. Adebayo Ogundimu" class="researcher-avatar">
+                    <div class="feature-card text-center">
+                        <div class="faculty-avatar-placeholder mb-3">
+                            <i class="fas fa-user-tie fa-4x text-gold"></i>
+                        </div>
                         <h5>Prof. Dr. Adebayo Ogundimu</h5>
-                        <p class="text-primary small mb-2">Research Director</p>
+                        <p class="text-gold small mb-2">Research Director</p>
                         <p class="small">AI Security, Threat Intelligence, Network Security</p>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">15 Publications</span>
@@ -553,10 +329,12 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="researcher-card">
-                        <img src="/placeholder.svg?height=100&width=100" alt="Dr. Funmi Adeyemi" class="researcher-avatar">
+                    <div class="feature-card text-center">
+                        <div class="faculty-avatar-placeholder mb-3">
+                            <i class="fas fa-user-tie fa-4x text-gold"></i>
+                        </div>
                         <h5>Dr. Funmi Adeyemi</h5>
-                        <p class="text-primary small mb-2">Senior Researcher</p>
+                        <p class="text-gold small mb-2">Senior Researcher</p>
                         <p class="small">Blockchain Security, Cryptography, Privacy</p>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">12 Publications</span>
@@ -565,10 +343,12 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="researcher-card">
-                        <img src="/placeholder.svg?height=100&width=100" alt="Dr. Emeka Nwosu" class="researcher-avatar">
+                    <div class="feature-card text-center">
+                        <div class="faculty-avatar-placeholder mb-3">
+                            <i class="fas fa-user-tie fa-4x text-gold"></i>
+                        </div>
                         <h5>Dr. Emeka Nwosu</h5>
-                        <p class="text-primary small mb-2">Senior Researcher</p>
+                        <p class="text-gold small mb-2">Senior Researcher</p>
                         <p class="small">IoT Security, Mobile Security, Penetration Testing</p>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">10 Publications</span>
@@ -577,10 +357,12 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="researcher-card">
-                        <img src="/placeholder.svg?height=100&width=100" alt="Dr. Kemi Adebayo" class="researcher-avatar">
+                    <div class="feature-card text-center">
+                        <div class="faculty-avatar-placeholder mb-3">
+                            <i class="fas fa-user-tie fa-4x text-gold"></i>
+                        </div>
                         <h5>Dr. Kemi Adebayo</h5>
-                        <p class="text-primary small mb-2">Research Fellow</p>
+                        <p class="text-gold small mb-2">Research Fellow</p>
                         <p class="small">Digital Forensics, Incident Response, Malware Analysis</p>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">8 Publications</span>
@@ -601,8 +383,8 @@
                     <p class="lead">We welcome collaboration opportunities with industry partners, government agencies, and academic institutions worldwide.</p>
                     <div class="row g-4 mt-4">
                         <div class="col-md-4">
-                            <div class="research-card text-center">
-                                <div class="research-icon">
+                            <div class="feature-card text-center">
+                                <div class="feature-icon">
                                     <i class="fas fa-handshake"></i>
                                 </div>
                                 <h5>Industry Partnerships</h5>
@@ -610,8 +392,8 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="research-card text-center">
-                                <div class="research-icon">
+                            <div class="feature-card text-center">
+                                <div class="feature-icon">
                                     <i class="fas fa-graduation-cap"></i>
                                 </div>
                                 <h5>Academic Exchange</h5>
@@ -619,8 +401,8 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="research-card text-center">
-                                <div class="research-icon">
+                            <div class="feature-card text-center">
+                                <div class="feature-icon">
                                     <i class="fas fa-money-bill-wave"></i>
                                 </div>
                                 <h5>Funding Opportunities</h5>
@@ -643,7 +425,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5><i class="fas fa-shield-alt me-2"></i>UNIUYO Cybersecurity</h5>
-                    <p>Building the next generation of cybersecurity experts through innovative education, cutting-edge research, and industry partnerships.</p>
+                    <p>Part of the University of Uyo's commitment to academic excellence. Building cybersecurity professionals through innovative education, research, and community service - embodying "Thought & Service."</p>
                     <div class="social-links">
                         <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
@@ -658,6 +440,7 @@
                         <li><a href="research.html">Research</a></li>
                         <li><a href="training.html">Training</a></li>
                         <li><a href="updates.html">Updates</a></li>
+                        <li><a href="https://uniuyo.edu.ng/" target="_blank">UNIUYO Main Site</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
@@ -671,15 +454,16 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h5>Contact Info</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>University of Uyo, Akwa Ibom State, Nigeria</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Cybersecurity Department<br>Faculty of Science, University of Uyo<br>Uyo, Akwa Ibom State, Nigeria</p>
                     <p><i class="fas fa-phone me-2"></i>+234 (0) 85 200 2345</p>
                     <p><i class="fas fa-envelope me-2"></i>cybersecurity@uniuyo.edu.ng</p>
+                    <p><i class="fas fa-globe me-2"></i><a href="https://uniuyo.edu.ng/" target="_blank">uniuyo.edu.ng</a></p>
                 </div>
             </div>
             <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 University of Uyo Cybersecurity Department. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2025 University of Uyo - Cybersecurity Department. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="me-3">Privacy Policy</a>
@@ -699,10 +483,10 @@
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(30, 58, 138, 0.95)';
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
                 navbar.style.backdropFilter = 'blur(10px)';
             } else {
-                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
+                navbar.style.background = 'var(--primary-color)';
                 navbar.style.backdropFilter = 'none';
             }
         });
@@ -723,7 +507,7 @@
         }, observerOptions);
 
         // Observe all cards for animation
-        document.querySelectorAll('.research-card, .project-card, .publication-item, .researcher-card, .stat-item').forEach(el => {
+        document.querySelectorAll('.feature-card, .content-card, .stat-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

@@ -7,258 +7,15 @@
     <link rel="icon" type="image/png" href="assets/images/loginImg.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/cyber-theme.css" rel="stylesheet"> html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training - Cybersecurity Department</title>
-    <link rel="icon" type="image/png" href="assets/images/loginImg.png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1e3a8a;
-            --secondary-color: #3b82f6;
-            --accent-color: #ef4444;
-            --dark-color: #1f2937;
-            --light-color: #f8fafc;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .page-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 120px 0 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .page-header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent-color);
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .course-level {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .level-beginner {
-            background: #dcfce7;
-            color: var(--success-color);
-        }
-
-        .level-intermediate {
-            background: #fef3c7;
-            color: var(--warning-color);
-        }
-
-        .level-advanced {
-            background: #fee2e2;
-            color: var(--accent-color);
-        }
-
-        .certification-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            border: 2px solid transparent;
-        }
-
-        .certification-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-color: var(--secondary-color);
-        }
-
-        .cert-logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            background: var(--light-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--secondary-color);
-        }
-
-        .schedule-table {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .schedule-table th {
-            background: var(--primary-color);
-            color: white;
-            font-weight: 600;
-            padding: 1rem;
-            border: none;
-        }
-
-        .schedule-table td {
-            padding: 1rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .schedule-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .status-badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .status-open {
-            background: #dcfce7;
-            color: var(--success-color);
-        }
-
-        .status-filling {
-            background: #fef3c7;
-            color: var(--warning-color);
-        }
-
-        .status-closed {
-            background: #fee2e2;
-            color: var(--accent-color);
-        }
-
-        .feature-highlight {
-            background: var(--light-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        .footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer h5 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .footer a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--secondary-color);
-        }
-
-        @media (max-width: 768px) {
-            .page-header {
-                padding: 100px 0 40px;
-            }
-            
-            .navbar-nav {
-                text-align: center;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="assets/css/cyber-theme.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="fas fa-shield-alt me-2"></i>
+                <img src="assets/images/loginImg.png" alt="Cybersecurity Department Logo">
                 UNIUYO Cybersecurity
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -293,11 +50,11 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="hero-section">
         <div class="container">
-            <div class="page-header-content">
-                <h1 class="display-4 fw-bold mb-3">Training & Certifications</h1>
-                <p class="lead">Professional cybersecurity training programs and industry certifications</p>
+            <div class="hero-content">
+                <h1 class="hero-title">Training & Certifications</h1>
+                <p class="hero-subtitle">Professional cybersecurity training programs and industry certifications</p>
             </div>
         </div>
     </section>
@@ -309,20 +66,20 @@
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="section-title">Professional Development Programs</h2>
                     <p class="lead">Our comprehensive training programs are designed to equip professionals with the latest cybersecurity skills and industry-recognized certifications.</p>
-                    <div class="feature-highlight">
+                    <div class="content-card">
                         <div class="row g-4">
                             <div class="col-md-4">
-                                <i class="fas fa-certificate text-primary fs-2 mb-2"></i>
+                                <i class="fas fa-certificate text-gold fs-2 mb-2"></i>
                                 <h5>Industry Certifications</h5>
                                 <p class="small mb-0">Prepare for leading certifications like CISSP, CEH, and CompTIA Security+</p>
                             </div>
                             <div class="col-md-4">
-                                <i class="fas fa-users text-primary fs-2 mb-2"></i>
+                                <i class="fas fa-users text-gold fs-2 mb-2"></i>
                                 <h5>Expert Instructors</h5>
                                 <p class="small mb-0">Learn from certified professionals with real-world experience</p>
                             </div>
                             <div class="col-md-4">
-                                <i class="fas fa-laptop-code text-primary fs-2 mb-2"></i>
+                                <i class="fas fa-laptop-code text-gold fs-2 mb-2"></i>
                                 <h5>Hands-on Labs</h5>
                                 <p class="small mb-0">Practice with real-world scenarios in our state-of-the-art labs</p>
                             </div>
@@ -339,9 +96,9 @@
             <h2 class="section-title">Available Training Courses</h2>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="course-card">
-                        <span class="course-level level-beginner">Beginner</span>
-                        <h4><i class="fas fa-shield-alt text-primary me-2"></i>Cybersecurity Fundamentals</h4>
+                    <div class="feature-card">
+                        <span class="badge bg-success mb-3">Beginner</span>
+                        <h4><i class="fas fa-shield-alt text-gold me-2"></i>Cybersecurity Fundamentals</h4>
                         <p class="mb-3">Comprehensive introduction to cybersecurity principles, threats, and defense mechanisms for beginners.</p>
                         
                         <div class="mb-3">
@@ -364,8 +121,8 @@
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="course-card">
-                        <span class="course-level level-intermediate">Intermediate</span>
+                    <div class="feature-card">
+                        <span class="badge bg-warning mb-3">Intermediate</span>
                         <h4><i class="fas fa-bug text-danger me-2"></i>Ethical Hacking & Penetration Testing</h4>
                         <p class="mb-3">Learn penetration testing and vulnerability assessment techniques used by security professionals.</p>
                         
@@ -389,8 +146,8 @@
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="course-card">
-                        <span class="course-level level-advanced">Advanced</span>
+                    <div class="feature-card">
+                        <span class="badge bg-danger mb-3">Advanced</span>
                         <h4><i class="fas fa-search text-info me-2"></i>Digital Forensics & Incident Response</h4>
                         <p class="mb-3">Master the art of digital investigation and evidence collection in cybercrime cases.</p>
                         
@@ -414,8 +171,8 @@
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="course-card">
-                        <span class="course-level level-intermediate">Intermediate</span>
+                    <div class="feature-card">
+                        <span class="badge bg-warning mb-3">Intermediate</span>
                         <h4><i class="fas fa-cloud text-primary me-2"></i>Cloud Security Architecture</h4>
                         <p class="mb-3">Learn to secure cloud environments and implement robust cloud security architectures.</p>
                         
@@ -439,8 +196,8 @@
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="course-card">
-                        <span class="course-level level-advanced">Advanced</span>
+                    <div class="feature-card">
+                        <span class="badge bg-danger mb-3">Advanced</span>
                         <h4><i class="fas fa-brain text-warning me-2"></i>AI Security & Machine Learning</h4>
                         <p class="mb-3">Explore the intersection of artificial intelligence and cybersecurity, including AI-powered threats and defenses.</p>
                         
@@ -464,8 +221,8 @@
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="course-card">
-                        <span class="course-level level-intermediate">Intermediate</span>
+                    <div class="feature-card">
+                        <span class="badge bg-warning mb-3">Intermediate</span>
                         <h4><i class="fas fa-mobile-alt text-success me-2"></i>Mobile & IoT Security</h4>
                         <p class="mb-3">Secure mobile applications and IoT devices in an increasingly connected world.</p>
                         
@@ -497,9 +254,9 @@
             <h2 class="section-title">Industry Certification Preparation</h2>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
-                    <div class="certification-card">
-                        <div class="cert-logo">
-                            <i class="fas fa-certificate"></i>
+                    <div class="feature-card text-center">
+                        <div class="cert-logo mb-3">
+                            <i class="fas fa-certificate fa-3x text-gold"></i>
                         </div>
                         <h5>CISSP</h5>
                         <p class="small text-muted mb-3">Certified Information Systems Security Professional</p>
@@ -518,9 +275,9 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="certification-card">
-                        <div class="cert-logo">
-                            <i class="fas fa-user-secret"></i>
+                    <div class="feature-card text-center">
+                        <div class="cert-logo mb-3">
+                            <i class="fas fa-user-secret fa-3x text-gold"></i>
                         </div>
                         <h5>CEH</h5>
                         <p class="small text-muted mb-3">Certified Ethical Hacker</p>
@@ -539,9 +296,9 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="certification-card">
-                        <div class="cert-logo">
-                            <i class="fas fa-shield-alt"></i>
+                    <div class="feature-card text-center">
+                        <div class="cert-logo mb-3">
+                            <i class="fas fa-shield-alt fa-3x text-gold"></i>
                         </div>
                         <h5>CompTIA Security+</h5>
                         <p class="small text-muted mb-3">CompTIA Security+ Certification</p>
@@ -560,9 +317,9 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="certification-card">
-                        <div class="cert-logo">
-                            <i class="fas fa-cloud"></i>
+                    <div class="feature-card text-center">
+                        <div class="cert-logo mb-3">
+                            <i class="fas fa-cloud fa-3x text-gold"></i>
                         </div>
                         <h5>CCSP</h5>
                         <p class="small text-muted mb-3">Certified Cloud Security Professional</p>
@@ -589,9 +346,9 @@
             <h2 class="section-title">Upcoming Training Schedule</h2>
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <div class="schedule-table">
-                        <table class="table table-hover mb-0">
-                            <thead>
+                    <div class="table-responsive">
+                        <table class="table table-hover bg-white rounded">
+                            <thead class="table-primary">
                                 <tr>
                                     <th>Course</th>
                                     <th>Start Date</th>
@@ -607,7 +364,7 @@
                                     <td>January 15, 2025</td>
                                     <td>6 weeks</td>
                                     <td>Hybrid</td>
-                                    <td><span class="status-badge status-open">Open</span></td>
+                                    <td><span class="badge bg-success">Open</span></td>
                                     <td><button class="btn btn-sm btn-primary">Register</button></td>
                                 </tr>
                                 <tr>
@@ -615,7 +372,7 @@
                                     <td>January 22, 2025</td>
                                     <td>8 weeks</td>
                                     <td>In-Person</td>
-                                    <td><span class="status-badge status-filling">Filling Fast</span></td>
+                                    <td><span class="badge bg-warning">Filling Fast</span></td>
                                     <td><button class="btn btn-sm btn-primary">Register</button></td>
                                 </tr>
                                 <tr>
@@ -623,7 +380,7 @@
                                     <td>February 5, 2025</td>
                                     <td>10 weeks</td>
                                     <td>In-Person</td>
-                                    <td><span class="status-badge status-open">Open</span></td>
+                                    <td><span class="badge bg-success">Open</span></td>
                                     <td><button class="btn btn-sm btn-primary">Register</button></td>
                                 </tr>
                                 <tr>
@@ -631,7 +388,7 @@
                                     <td>February 12, 2025</td>
                                     <td>8 weeks</td>
                                     <td>Online</td>
-                                    <td><span class="status-badge status-open">Open</span></td>
+                                    <td><span class="badge bg-success">Open</span></td>
                                     <td><button class="btn btn-sm btn-primary">Register</button></td>
                                 </tr>
                                 <tr>
@@ -639,7 +396,7 @@
                                     <td>March 1, 2025</td>
                                     <td>12 weeks</td>
                                     <td>Hybrid</td>
-                                    <td><span class="status-badge status-open">Open</span></td>
+                                    <td><span class="badge bg-success">Open</span></td>
                                     <td><button class="btn btn-sm btn-primary">Register</button></td>
                                 </tr>
                                 <tr>
@@ -647,7 +404,7 @@
                                     <td>March 15, 2025</td>
                                     <td>12 weeks</td>
                                     <td>In-Person</td>
-                                    <td><span class="status-badge status-closed">Closed</span></td>
+                                    <td><span class="badge bg-danger">Closed</span></td>
                                     <td><button class="btn btn-sm btn-outline-secondary" disabled>Waitlist</button></td>
                                 </tr>
                             </tbody>
@@ -664,22 +421,22 @@
             <h2 class="section-title">Why Choose Our Training Programs?</h2>
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <div class="feature-highlight text-center">
-                        <i class="fas fa-award text-primary fs-1 mb-3"></i>
+                    <div class="feature-card text-center">
+                        <i class="fas fa-award text-gold fs-1 mb-3"></i>
                         <h4>Industry Recognition</h4>
                         <p>Our training programs are recognized by leading cybersecurity organizations and employers worldwide.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="feature-highlight text-center">
-                        <i class="fas fa-users-cog text-primary fs-1 mb-3"></i>
+                    <div class="feature-card text-center">
+                        <i class="fas fa-users-cog text-gold fs-1 mb-3"></i>
                         <h4>Expert Instructors</h4>
                         <p>Learn from certified professionals with extensive real-world experience in cybersecurity.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="feature-highlight text-center">
-                        <i class="fas fa-handshake text-primary fs-1 mb-3"></i>
+                    <div class="feature-card text-center">
+                        <i class="fas fa-handshake text-gold fs-1 mb-3"></i>
                         <h4>Career Support</h4>
                         <p>Get career guidance, job placement assistance, and networking opportunities with industry professionals.</p>
                     </div>
@@ -697,22 +454,22 @@
                     <p class="lead">Contact our training team to learn more about our programs and find the right course for your career goals.</p>
                     <div class="row g-4 mt-4">
                         <div class="col-md-4">
-                            <div class="feature-highlight text-center">
-                                <i class="fas fa-phone text-primary fs-3 mb-2"></i>
+                            <div class="feature-card text-center">
+                                <i class="fas fa-phone text-gold fs-3 mb-2"></i>
                                 <h6>Call Us</h6>
                                 <p class="mb-0">+234 (0) 85 200 2345</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="feature-highlight text-center">
-                                <i class="fas fa-envelope text-primary fs-3 mb-2"></i>
+                            <div class="feature-card text-center">
+                                <i class="fas fa-envelope text-gold fs-3 mb-2"></i>
                                 <h6>Email Us</h6>
                                 <p class="mb-0">training@uniuyo.edu.ng</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="feature-highlight text-center">
-                                <i class="fas fa-calendar text-primary fs-3 mb-2"></i>
+                            <div class="feature-card text-center">
+                                <i class="fas fa-calendar text-gold fs-3 mb-2"></i>
                                 <h6>Schedule Consultation</h6>
                                 <p class="mb-0">Book a free consultation</p>
                             </div>
@@ -733,7 +490,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5><i class="fas fa-shield-alt me-2"></i>UNIUYO Cybersecurity</h5>
-                    <p>Building the next generation of cybersecurity experts through innovative education, cutting-edge research, and industry partnerships.</p>
+                    <p>Part of the University of Uyo's commitment to academic excellence. Building cybersecurity professionals through innovative education, research, and community service - embodying "Thought & Service."</p>
                     <div class="social-links">
                         <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
@@ -748,6 +505,7 @@
                         <li><a href="research.html">Research</a></li>
                         <li><a href="training.html">Training</a></li>
                         <li><a href="updates.html">Updates</a></li>
+                        <li><a href="https://uniuyo.edu.ng/" target="_blank">UNIUYO Main Site</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
@@ -761,15 +519,16 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h5>Contact Info</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>University of Uyo, Akwa Ibom State, Nigeria</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Cybersecurity Department<br>Faculty of Science, University of Uyo<br>Uyo, Akwa Ibom State, Nigeria</p>
                     <p><i class="fas fa-phone me-2"></i>+234 (0) 85 200 2345</p>
                     <p><i class="fas fa-envelope me-2"></i>cybersecurity@uniuyo.edu.ng</p>
+                    <p><i class="fas fa-globe me-2"></i><a href="https://uniuyo.edu.ng/" target="_blank">uniuyo.edu.ng</a></p>
                 </div>
             </div>
             <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 University of Uyo Cybersecurity Department. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2025 University of Uyo - Cybersecurity Department. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="me-3">Privacy Policy</a>
@@ -789,10 +548,10 @@
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(30, 58, 138, 0.95)';
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
                 navbar.style.backdropFilter = 'blur(10px)';
             } else {
-                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
+                navbar.style.background = 'var(--primary-color)';
                 navbar.style.backdropFilter = 'none';
             }
         });
@@ -813,7 +572,7 @@
         }, observerOptions);
 
         // Observe all cards for animation
-        document.querySelectorAll('.course-card, .certification-card, .feature-highlight').forEach(el => {
+        document.querySelectorAll('.feature-card, .content-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
