@@ -3,258 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Programs - Cybersecurity Department | University of Uyo</title>
+    <title>Programs - Cybersecurity Department</title>
+    <link rel="icon" type="image/png" href="assets/images/loginImg.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-                :root {
-            --primary-color: #0a192f;
-            --secondary-color: #00ff41;
-            --accent-color: #00b4d8;
-            --dark-color: #020c1b;
-            --light-color: #ecf8ff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .page-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 120px 0 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .page-header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent-color);
-        }
-
-        .program-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2.5rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-        }
-
-        .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .program-level {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .level-undergraduate {
-            background: #dcfce7;
-            color: var(--success-color);
-        }
-
-        .level-masters {
-            background: #dbeafe;
-            color: var(--secondary-color);
-        }
-
-        .level-doctoral {
-            background: #fef3c7;
-            color: var(--warning-color);
-        }
-
-        .curriculum-section {
-            background: var(--light-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .semester-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .admission-requirements {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-
-        .career-item {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .career-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
-
-        .career-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .stats-section {
-            background: var(--primary-color);
-            color: white;
-            padding: 80px 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: white;
-            display: block;
-        }
-
-        .stat-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        .footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer h5 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .footer a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--secondary-color);
-        }
-
-        .tab-content {
-            padding: 2rem 0;
-        }
-
-        .nav-tabs .nav-link {
-            border: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            padding: 1rem 1.5rem;
-        }
-
-        .nav-tabs .nav-link.active {
-            background: var(--secondary-color);
-            color: white;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .page-header {
-                padding: 100px 0 40px;
-            }
-            
-            .navbar-nav {
-                text-align: center;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="assets/css/cyber-theme.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-                        <a class="navbar-brand" href="index.html">
-                <img src="assets/images/loginImg.png" alt="Cybersecurity Department Logo" style="height: 50px; width: auto;">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/loginImg.png" alt="Cybersecurity Department Logo">
+                UNIUYO Cybersecurity
             </a>
-            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse nav-links" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
@@ -283,116 +50,323 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="hero-section">
         <div class="container">
-            <div class="page-header-content">
-                <h1 class="display-4 fw-bold mb-3">Academic Programs</h1>
-                <p class="lead">Comprehensive degree programs in cybersecurity and computer science</p>
+            <div class="hero-content">
+                <h1 class="hero-title">Academic Programs</h1>
+                <p class="hero-subtitle">Comprehensive cybersecurity education from undergraduate to doctoral levels</p>
             </div>
         </div>
     </section>
 
-    <!-- Program Overview -->
+    <!-- Programs Overview -->
     <section class="py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Choose Your Path</h2>
-                    <p class="lead">Our academic programs are designed to provide comprehensive education in cybersecurity, from foundational knowledge to advanced research. Each program combines theoretical understanding with practical application to prepare graduates for successful careers in cybersecurity.</p>
+                    <h2 class="section-title">World-Class Cybersecurity Education</h2>
+                    <p class="lead">Our comprehensive academic programs are designed to prepare students for successful careers in cybersecurity, combining theoretical knowledge with practical hands-on experience.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Academic Programs -->
+    <!-- Undergraduate Programs -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="section-title">Degree Programs</h2>
+            <h2 class="section-title">Undergraduate Programs</h2>
             <div class="row g-4">
-                <!-- Undergraduate Program -->
-                <div class="col-lg-4">
-                    <div class="program-card" data-level="undergraduate">
-                        <span class="program-level level-undergraduate">Undergraduate</span>
-                        <h3><i class="fas fa-graduation-cap text-primary me-2"></i>B.Sc. Computer Science</h3>
-                        <p class="text-muted mb-3">Cybersecurity Specialization</p>
-                        <p class="mb-4">A comprehensive 4-year undergraduate program that provides a strong foundation in computer science with specialized focus on cybersecurity principles and practices.</p>
+                <div class="col-lg-6">
+                    <div class="feature-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4><i class="fas fa-graduation-cap text-gold me-2"></i>B.Sc. Computer Science (Cybersecurity)</h4>
+                            <span class="badge bg-success">4 Years</span>
+                        </div>
+                        <p class="mb-4">A comprehensive undergraduate program that provides students with a solid foundation in computer science principles while specializing in cybersecurity concepts and practices.</p>
                         
                         <div class="mb-4">
-                            <h5>Program Highlights:</h5>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i>4-year degree program (8 semesters)</li>
-                                <li><i class="fas fa-check text-success me-2"></i>120 credit hours total</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Industry internship required</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Capstone project in final year</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Professional certification preparation</li>
-                            </ul>
+                            <h6>Core Areas of Study:</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>Network Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Cryptography</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Digital Forensics</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Ethical Hacking</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>Risk Management</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Security Policies</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Incident Response</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Secure Programming</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span><strong>Duration:</strong> 4 years</span>
-                            <span><strong>Credits:</strong> 120</span>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Duration:</strong> 4 Years</p>
+                                <p class="mb-1"><strong>Credits:</strong> 120 Credit Hours</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Entry Requirements:</strong> JAMB/UTME</p>
+                                <p class="mb-1"><strong>Career Prospects:</strong> Security Analyst, Consultant</p>
+                            </div>
                         </div>
                         
-                        <button class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#bscModal">View Curriculum</button>
-                        <button class="btn btn-outline-primary w-100">Apply Now</button>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline-primary">View Curriculum</button>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Masters Program -->
-                <div class="col-lg-4">
-                    <div class="program-card" data-level="masters">
-                        <span class="program-level level-masters">Masters</span>
-                        <h3><i class="fas fa-user-graduate text-primary me-2"></i>M.Sc. Cybersecurity</h3>
-                        <p class="text-muted mb-3">Advanced Cybersecurity Studies</p>
-                        <p class="mb-4">An intensive 2-year graduate program designed for professionals seeking advanced knowledge in cybersecurity, including research and specialized applications.</p>
+                <div class="col-lg-6">
+                    <div class="feature-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4><i class="fas fa-laptop-code text-gold me-2"></i>B.Sc. Information Technology (Security)</h4>
+                            <span class="badge bg-success">4 Years</span>
+                        </div>
+                        <p class="mb-4">Focused on the practical application of information technology with emphasis on security implementation, system administration, and cybersecurity operations.</p>
                         
                         <div class="mb-4">
-                            <h5>Program Highlights:</h5>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i>2-year degree program (4 semesters)</li>
-                                <li><i class="fas fa-check text-success me-2"></i>36 credit hours total</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Thesis or project option</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Advanced research opportunities</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Industry collaboration projects</li>
+                            <h6>Core Areas of Study:</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>System Administration</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Cloud Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Mobile Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>IoT Security</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>Database Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Web Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Security Operations</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Compliance Management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Duration:</strong> 4 Years</p>
+                                <p class="mb-1"><strong>Credits:</strong> 120 Credit Hours</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Entry Requirements:</strong> JAMB/UTME</p>
+                                <p class="mb-1"><strong>Career Prospects:</strong> IT Security Specialist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline-primary">View Curriculum</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Postgraduate Programs -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Postgraduate Programs</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4><i class="fas fa-user-graduate text-gold me-2"></i>M.Sc. Cybersecurity</h4>
+                            <span class="badge bg-warning">2 Years</span>
+                        </div>
+                        <p class="mb-4">Advanced master's program focusing on cutting-edge cybersecurity research, advanced threat analysis, and security architecture design.</p>
+                        
+                        <div class="mb-4">
+                            <h6>Specialization Areas:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>Advanced Threat Analysis</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Security Architecture</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Cyber Threat Intelligence</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Digital Forensics</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Cryptographic Systems</li>
                             </ul>
                         </div>
                         
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span><strong>Duration:</strong> 2 years</span>
-                            <span><strong>Credits:</strong> 36</span>
+                        <div class="mb-3">
+                            <p class="mb-1"><strong>Duration:</strong> 2 Years (Full-time)</p>
+                            <p class="mb-1"><strong>Credits:</strong> 36 Credit Hours</p>
+                            <p class="mb-1"><strong>Thesis:</strong> Required</p>
                         </div>
                         
-                        <button class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#mscModal">View Curriculum</button>
-                        <button class="btn btn-outline-primary w-100">Apply Now</button>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline-primary">Learn More</button>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Doctoral Program -->
                 <div class="col-lg-4">
-                    <div class="program-card" data-level="doctoral">
-                        <span class="program-level level-doctoral">Doctoral</span>
-                        <h3><i class="fas fa-award text-primary me-2"></i>Ph.D. Cybersecurity</h3>
-                        <p class="text-muted mb-3">Research & Innovation</p>
-                        <p class="mb-4">A research-intensive doctoral program for scholars pursuing advanced research in cybersecurity, preparing future leaders and researchers in the field.</p>
+                    <div class="feature-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4><i class="fas fa-search text-gold me-2"></i>M.Sc. Digital Forensics</h4>
+                            <span class="badge bg-warning">2 Years</span>
+                        </div>
+                        <p class="mb-4">Specialized program in digital investigation techniques, evidence collection, and forensic analysis for cybercrime investigation.</p>
                         
                         <div class="mb-4">
-                            <h5>Program Highlights:</h5>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i>3-4 year research program</li>
-                                <li><i class="fas fa-check text-success me-2"></i>60 credit hours minimum</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Original research dissertation</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Teaching assistantship opportunities</li>
-                                <li><i class="fas fa-check text-success me-2"></i>International collaboration</li>
+                            <h6>Specialization Areas:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>Computer Forensics</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Mobile Device Forensics</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Network Forensics</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Malware Analysis</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Legal Aspects</li>
                             </ul>
                         </div>
                         
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span><strong>Duration:</strong> 3-4 years</span>
-                            <span><strong>Credits:</strong> 60+</span>
+                        <div class="mb-3">
+                            <p class="mb-1"><strong>Duration:</strong> 2 Years (Full-time)</p>
+                            <p class="mb-1"><strong>Credits:</strong> 36 Credit Hours</p>
+                            <p class="mb-1"><strong>Thesis:</strong> Required</p>
                         </div>
                         
-                        <button class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#phdModal">View Requirements</button>
-                        <button class="btn btn-outline-primary w-100">Apply Now</button>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4><i class="fas fa-network-wired text-gold me-2"></i>M.Sc. Network Security</h4>
+                            <span class="badge bg-warning">2 Years</span>
+                        </div>
+                        <p class="mb-4">Advanced study of network security protocols, infrastructure protection, and secure network design for enterprise environments.</p>
+                        
+                        <div class="mb-4">
+                            <h6>Specialization Areas:</h6>
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check text-success me-2"></i>Network Protocol Security</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Wireless Security</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Intrusion Detection</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Firewall Technologies</li>
+                                <li><i class="fas fa-check text-success me-2"></i>VPN Technologies</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <p class="mb-1"><strong>Duration:</strong> 2 Years (Full-time)</p>
+                            <p class="mb-1"><strong>Credits:</strong> 36 Credit Hours</p>
+                            <p class="mb-1"><strong>Thesis:</strong> Required</p>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctoral Programs -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Doctoral Programs</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="feature-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4><i class="fas fa-university text-gold me-2"></i>Ph.D. in Cybersecurity</h4>
+                            <span class="badge bg-danger">3-5 Years</span>
+                        </div>
+                        <p class="mb-4">Advanced research-focused doctoral program for students interested in contributing to the cybersecurity field through original research and innovation.</p>
+                        
+                        <div class="mb-4">
+                            <h6>Research Areas:</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>AI Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Blockchain Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>IoT Security</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Quantum Cryptography</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>Privacy Engineering</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Cyber-Physical Systems</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Human Factors</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Security Economics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <p class="mb-1"><strong>Duration:</strong> 3-5 Years</p>
+                            <p class="mb-1"><strong>Requirements:</strong> Master's Degree</p>
+                            <p class="mb-1"><strong>Research:</strong> Original Dissertation</p>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline-primary">Research Areas</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="feature-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4><i class="fas fa-microscope text-gold me-2"></i>Ph.D. in Information Security</h4>
+                            <span class="badge bg-danger">3-5 Years</span>
+                        </div>
+                        <p class="mb-4">Interdisciplinary doctoral program combining computer science, mathematics, and social sciences to address complex information security challenges.</p>
+                        
+                        <div class="mb-4">
+                            <h6>Research Areas:</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>Applied Cryptography</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Security Protocols</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Risk Assessment</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Security Metrics</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-2"></i>Policy & Governance</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Security Architecture</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Threat Modeling</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Security Analytics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <p class="mb-1"><strong>Duration:</strong> 3-5 Years</p>
+                            <p class="mb-1"><strong>Requirements:</strong> Master's Degree</p>
+                            <p class="mb-1"><strong>Research:</strong> Original Dissertation</p>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline-primary">Research Areas</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -402,12 +376,12 @@
     <!-- Program Statistics -->
     <section class="stats-section">
         <div class="container">
-            <h2 class="text-center text-white mb-5">Program Success</h2>
+            <h2 class="section-title text-white">Program Statistics</h2>
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="stat-item">
                         <span class="stat-number">500+</span>
-                        <div class="stat-label">Graduates</div>
+                        <div class="stat-label">Students Enrolled</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -418,14 +392,14 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="stat-item">
-                        <span class="stat-number">₦2.5M</span>
-                        <div class="stat-label">Average Starting Salary</div>
+                        <span class="stat-number">7</span>
+                        <div class="stat-label">Degree Programs</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="stat-item">
-                        <span class="stat-number">85%</span>
-                        <div class="stat-label">Certification Pass Rate</div>
+                        <span class="stat-number">25+</span>
+                        <div class="stat-label">Faculty Members</div>
                     </div>
                 </div>
             </div>
@@ -438,165 +412,41 @@
             <h2 class="section-title">Admission Requirements</h2>
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <div class="admission-requirements">
-                        <h4><i class="fas fa-graduation-cap text-primary me-2"></i>B.Sc. Computer Science</h4>
-                        <h6 class="text-muted mb-3">Undergraduate Requirements</h6>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-graduation-cap text-gold me-2"></i>Undergraduate</h4>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>WAEC/NECO with 5 credits including Mathematics and English</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>JAMB UTME score of 200 and above</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Post-UTME screening examination</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Physics and Chemistry at O'Level</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Age requirement: 16 years minimum</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>JAMB UTME with minimum of 200</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>5 O'Level credits including Mathematics and English</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Physics and Chemistry required</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Post-UTME screening</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Medical fitness certificate</li>
                         </ul>
-                        <div class="mt-3">
-                            <strong>Application Deadline:</strong> March 31, 2025
-                        </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-4">
-                    <div class="admission-requirements">
-                        <h4><i class="fas fa-user-graduate text-primary me-2"></i>M.Sc. Cybersecurity</h4>
-                        <h6 class="text-muted mb-3">Masters Requirements</h6>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-user-graduate text-gold me-2"></i>Master's</h4>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bachelor's degree in Computer Science or related field</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Minimum CGPA of 3.0 (Second Class Upper)</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>GRE scores (recommended)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bachelor's degree in relevant field</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Minimum CGPA of 3.0/5.0 or 2.5/4.0</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Two academic references</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Statement of purpose</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>English proficiency (if applicable)</li>
                         </ul>
-                        <div class="mt-3">
-                            <strong>Application Deadline:</strong> April 30, 2025
-                        </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-4">
-                    <div class="admission-requirements">
-                        <h4><i class="fas fa-award text-primary me-2"></i>Ph.D. Cybersecurity</h4>
-                        <h6 class="text-muted mb-3">Doctoral Requirements</h6>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-university text-gold me-2"></i>Doctoral</h4>
                         <ul class="list-unstyled">
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Master's degree in relevant field</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Minimum CGPA of 3.5</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Minimum CGPA of 3.5/5.0 or 3.0/4.0</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Research proposal</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Three academic references</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Interview with admission committee</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Interview with faculty committee</li>
                         </ul>
-                        <div class="mt-3">
-                            <strong>Application Deadline:</strong> May 31, 2025
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Career Prospects -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Career Opportunities</h2>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h5>Security Analyst</h5>
-                        <p class="small">Monitor and analyze security threats, implement security measures, and respond to incidents.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦1.8M - ₦3.5M</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-user-secret"></i>
-                        </div>
-                        <h5>Penetration Tester</h5>
-                        <p class="small">Conduct ethical hacking and vulnerability assessments to identify security weaknesses.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦2.2M - ₦4.0M</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h5>Digital Forensics Specialist</h5>
-                        <p class="small">Investigate cybercrimes and recover digital evidence for legal proceedings.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦2.0M - ₦3.8M</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <h5>Security Consultant</h5>
-                        <p class="small">Provide expert advice on security strategies and implementations for organizations.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦2.5M - ₦5.0M</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h5>Security Engineer</h5>
-                        <p class="small">Design and implement security systems and infrastructure for organizations.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦2.3M - ₦4.2M</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
-                        <h5>Compliance Officer</h5>
-                        <p class="small">Ensure organizational compliance with cybersecurity regulations and standards.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦1.9M - ₦3.6M</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h5>CISO/Security Manager</h5>
-                        <p class="small">Lead cybersecurity strategy and manage security teams in large organizations.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦4.0M - ₦8.0M</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="career-item">
-                        <div class="career-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h5>Academic/Researcher</h5>
-                        <p class="small">Conduct research and teach cybersecurity in academic institutions.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary">₦1.5M - ₦4.5M</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -604,312 +454,52 @@
     </section>
 
     <!-- Application Process -->
-    <section class="py-5">
+    <section class="py-5 bg-light">
         <div class="container">
+            <h2 class="section-title">Application Process</h2>
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Ready to Apply?</h2>
-                    <p class="lead">Start your journey in cybersecurity with our world-class academic programs. Our admissions team is here to guide you through the application process.</p>
-                    <div class="row g-4 mt-4">
-                        <div class="col-md-4">
-                            <div class="career-item">
-                                <div class="career-icon">
-                                    <i class="fas fa-file-alt"></i>
+                <div class="col-lg-8 mx-auto">
+                    <div class="content-card">
+                        <div class="row g-4">
+                            <div class="col-md-3 text-center">
+                                <div class="process-step">
+                                    <div class="step-number">1</div>
+                                    <h6>Online Application</h6>
+                                    <p class="small">Complete the online application form with all required information</p>
                                 </div>
-                                <h5>1. Submit Application</h5>
-                                <p class="small">Complete online application with required documents</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <div class="process-step">
+                                    <div class="step-number">2</div>
+                                    <h6>Document Submission</h6>
+                                    <p class="small">Upload all required documents and certificates</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <div class="process-step">
+                                    <div class="step-number">3</div>
+                                    <h6>Application Review</h6>
+                                    <p class="small">Admissions committee reviews your application</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <div class="process-step">
+                                    <div class="step-number">4</div>
+                                    <h6>Admission Decision</h6>
+                                    <p class="small">Receive notification of admission decision</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="career-item">
-                                <div class="career-icon">
-                                    <i class="fas fa-clipboard-list"></i>
-                                </div>
-                                <h5>2. Take Entrance Exam</h5>
-                                <p class="small">Participate in program-specific entrance examinations</p>
-                            </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="#" class="btn btn-primary btn-lg me-3">Start Application</a>
+                            <a href="#" class="btn btn-outline-primary btn-lg">Application Guidelines</a>
                         </div>
-                        <div class="col-md-4">
-                            <div class="career-item">
-                                <div class="career-icon">
-                                    <i class="fas fa-handshake"></i>
-                                </div>
-                                <h5>3. Interview & Admission</h5>
-                                <p class="small">Complete interview process and receive admission decision</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-primary btn-lg me-3">Apply Online</a>
-                        <a href="about.html" class="btn btn-outline-primary btn-lg">Contact Admissions</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Curriculum Modals -->
-    <!-- B.Sc. Modal -->
-    <div class="modal fade" id="bscModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">B.Sc. Computer Science - Cybersecurity Specialization Curriculum</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="curriculum-section">
-                        <h6>Year 1 - Foundation</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 1</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Introduction to Computer Science</li>
-                                        <li>• Mathematics for Computing</li>
-                                        <li>• Programming Fundamentals</li>
-                                        <li>• Digital Logic Design</li>
-                                        <li>• English Language</li>
-                                        <li>• General Studies</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 2</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Data Structures & Algorithms</li>
-                                        <li>• Discrete Mathematics</li>
-                                        <li>• Computer Architecture</li>
-                                        <li>• Introduction to Cybersecurity</li>
-                                        <li>• Statistics for Computing</li>
-                                        <li>• Communication Skills</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="curriculum-section">
-                        <h6>Year 2 - Core Concepts</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 3</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Object-Oriented Programming</li>
-                                        <li>• Database Systems</li>
-                                        <li>• Network Fundamentals</li>
-                                        <li>• Cryptography Basics</li>
-                                        <li>• Linear Algebra</li>
-                                        <li>• Ethics in Computing</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 4</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Operating Systems</li>
-                                        <li>• Web Technologies</li>
-                                        <li>• Network Security</li>
-                                        <li>• Information Security Management</li>
-                                        <li>• Software Engineering</li>
-                                        <li>• Entrepreneurship</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="curriculum-section">
-                        <h6>Year 3 - Specialization</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 5</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Ethical Hacking & Penetration Testing</li>
-                                        <li>• Digital Forensics</li>
-                                        <li>• Secure Software Development</li>
-                                        <li>• Risk Assessment & Management</li>
-                                        <li>• Mobile Security</li>
-                                        <li>• Industrial Training (SIWES)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 6</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Cloud Security</li>
-                                        <li>• Incident Response</li>
-                                        <li>• Malware Analysis</li>
-                                        <li>• Security Auditing</li>
-                                        <li>• IoT Security</li>
-                                        <li>• Research Methodology</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="curriculum-section">
-                        <h6>Year 4 - Advanced & Project</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 7</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Advanced Cryptography</li>
-                                        <li>• AI in Cybersecurity</li>
-                                        <li>• Blockchain Security</li>
-                                        <li>• Cybersecurity Law & Policy</li>
-                                        <li>• Project I</li>
-                                        <li>• Elective Course</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 8</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Security Architecture</li>
-                                        <li>• Cyber Threat Intelligence</li>
-                                        <li>• Business Continuity Planning</li>
-                                        <li>• Project II</li>
-                                        <li>• Seminar</li>
-                                        <li>• Elective Course</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- M.Sc. Modal -->
-    <div class="modal fade" id="mscModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">M.Sc. Cybersecurity Curriculum</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="curriculum-section">
-                        <h6>Year 1 - Advanced Foundations</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 1</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Advanced Network Security</li>
-                                        <li>• Cryptographic Protocols</li>
-                                        <li>• Security Risk Management</li>
-                                        <li>• Research Methods in Cybersecurity</li>
-                                        <li>• Advanced Digital Forensics</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 2</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Machine Learning for Security</li>
-                                        <li>• Advanced Penetration Testing</li>
-                                        <li>• Cloud Security Architecture</li>
-                                        <li>• Cybersecurity Governance</li>
-                                        <li>• Secure Software Engineering</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="curriculum-section">
-                        <h6>Year 2 - Specialization & Research</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 3</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Blockchain Security</li>
-                                        <li>• IoT & Mobile Security</li>
-                                        <li>• Cyber Threat Intelligence</li>
-                                        <li>• Thesis/Project I</li>
-                                        <li>• Elective Course</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="semester-card">
-                                    <h6>Semester 4</h6>
-                                    <ul class="list-unstyled small">
-                                        <li>• Advanced Malware Analysis</li>
-                                        <li>• Security in Emerging Technologies</li>
-                                        <li>• Thesis/Project II</li>
-                                        <li>• Seminar & Defense</li>
-                                        <li>• Elective Course</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Ph.D. Modal -->
-    <div class="modal fade" id="phdModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Ph.D. Cybersecurity Program Requirements</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="curriculum-section">
-                        <h6>Program Structure</h6>
-                        <div class="semester-card">
-                            <h6>Coursework Phase (Years 1-2)</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Core Courses (24 credits):</strong> Advanced topics in cybersecurity research</li>
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Elective Courses (12 credits):</strong> Specialized areas of interest</li>
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Research Seminars (6 credits):</strong> Current topics and methodologies</li>
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Comprehensive Examination:</strong> Written and oral exams</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="semester-card">
-                            <h6>Research Phase (Years 2-4)</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Dissertation Proposal:</strong> Original research proposal defense</li>
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Original Research:</strong> Independent research under faculty supervision</li>
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Publications:</strong> Minimum 3 peer-reviewed publications</li>
-                                <li><i class="fas fa-check text-success me-2"></i><strong>Dissertation Defense:</strong> Final oral defense of research</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="semester-card">
-                            <h6>Research Areas</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-arrow-right text-primary me-2"></i>AI and Machine Learning Security</li>
-                                <li><i class="fas fa-arrow-right text-primary me-2"></i>Blockchain and Cryptocurrency Security</li>
-                                <li><i class="fas fa-arrow-right text-primary me-2"></i>IoT and Mobile Security</li>
-                                <li><i class="fas fa-arrow-right text-primary me-2"></i>Digital Forensics and Incident Response</li>
-                                <li><i class="fas fa-arrow-right text-primary me-2"></i>Cryptography and Privacy</li>
-                                <li><i class="fas fa-arrow-right text-primary me-2"></i>Network Security and Infrastructure</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -917,7 +507,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5><i class="fas fa-shield-alt me-2"></i>UNIUYO Cybersecurity</h5>
-                    <p>Building the next generation of cybersecurity experts through innovative education, cutting-edge research, and industry partnerships.</p>
+                    <p>Part of the University of Uyo's commitment to academic excellence. Building cybersecurity professionals through innovative education, research, and community service - embodying "Thought & Service."</p>
                     <div class="social-links">
                         <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
@@ -932,6 +522,7 @@
                         <li><a href="research.html">Research</a></li>
                         <li><a href="training.html">Training</a></li>
                         <li><a href="updates.html">Updates</a></li>
+                        <li><a href="https://uniuyo.edu.ng/" target="_blank">UNIUYO Main Site</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
@@ -945,15 +536,16 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h5>Contact Info</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>University of Uyo, Akwa Ibom State, Nigeria</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Cybersecurity Department<br>Faculty of Science, University of Uyo<br>Uyo, Akwa Ibom State, Nigeria</p>
                     <p><i class="fas fa-phone me-2"></i>+234 (0) 85 200 2345</p>
                     <p><i class="fas fa-envelope me-2"></i>cybersecurity@uniuyo.edu.ng</p>
+                    <p><i class="fas fa-globe me-2"></i><a href="https://uniuyo.edu.ng/" target="_blank">uniuyo.edu.ng</a></p>
                 </div>
             </div>
             <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 University of Uyo Cybersecurity Department. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2025 University of Uyo - Cybersecurity Department. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="me-3">Privacy Policy</a>
@@ -969,16 +561,35 @@
     
     <!-- Custom JavaScript -->
     <script>
-        // Navbar background change on scroll
+        // Enhanced navbar behavior - hide on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        
         window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(30, 58, 138, 0.95)';
-                navbar.style.backdropFilter = 'blur(10px)';
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down & past 100px
+                navbar.style.transform = 'translateY(-100%)';
+                navbar.style.transition = 'transform 0.3s ease-in-out';
             } else {
-                navbar.style.background = 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))';
-                navbar.style.backdropFilter = 'none';
+                // Scrolling up or at top
+                navbar.style.transform = 'translateY(0)';
+                navbar.style.transition = 'transform 0.3s ease-in-out';
             }
+            
+            // Change navbar background based on scroll position
+            if (scrollTop > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'var(--primary-color)';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.boxShadow = 'none';
+            }
+            
+            lastScrollTop = scrollTop;
         });
 
         // Animation on scroll
@@ -997,60 +608,21 @@
         }, observerOptions);
 
         // Observe all cards for animation
-        document.querySelectorAll('.program-card, .admission-requirements, .career-item, .stat-item').forEach(el => {
+        document.querySelectorAll('.feature-card, .content-card, .stat-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Mobile menu close on link click
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
                 }
             });
         });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-
-        // Program filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const programCards = document.querySelectorAll('.program-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.dataset.filter;
-                
-                // Update active button
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Filter programs
-                programCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.level === filter) {
-                        card.style.display = 'block';
-                        card.style.opacity = '1';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
     </script>
-</body>
-</html>

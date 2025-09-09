@@ -79,7 +79,8 @@ p {
     padding: 1rem 0;
     box-shadow: var(--shadow-md);
     border-bottom: 2px solid var(--secondary-color);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, transform 0.3s ease-in-out;
+    z-index: 1050;
 }
 
 .navbar-brand {
@@ -108,6 +109,7 @@ p {
     border-radius: var(--radius-md);
     transition: all 0.3s ease;
     margin: 0 0.25rem;
+    position: relative;
 }
 
 .nav-link:hover,
@@ -115,6 +117,24 @@ p {
     color: var(--primary-color) !important;
     background-color: var(--secondary-color);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(251, 191, 36, 0.3);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
 }
 
 /* Buttons */
@@ -494,6 +514,55 @@ p {
     border-left: none;
 }
 
+/* Process Steps for Application */
+.process-step {
+    padding: 1rem;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.step-number::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+    transform: translateY(-50%);
+}
+
+.process-step:last-child .step-number::after {
+    display: none;
+}
+
+/* Enhanced navbar styling */
+.navbar-toggler {
+    border: 2px solid var(--secondary-color);
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(251, 191, 36, 0.25);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28251, 191, 36, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .container {
@@ -538,16 +607,26 @@ p {
         border-radius: var(--radius-lg);
         margin-top: 1rem;
         border: 1px solid var(--secondary-color);
+        box-shadow: var(--shadow-lg);
     }
 
     .nav-link {
         padding: 0.75rem !important;
         margin: 0.25rem 0;
         border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+        border-radius: var(--radius-md) !important;
     }
 
     .nav-link:last-child {
         border-bottom: none;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .step-number::after {
+        display: none;
     }
     
     .card, .content-card, .feature-card {
